@@ -45,14 +45,14 @@
                                     aria-label="Password" value="12345678" aria-describedby="basic-addon1">
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary px-5 mb-2 mx-2 mx-auto">Login</button>
+                        <div class="mx-5 mb-4">
+                            <button type="submit" class="btn btn-primary px-4">Login</button>
+                            <button type="button" class="btn btn-primary px-4" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">
+                                Daftar
+                            </button>
+                        </div>
                     </form>
-                    <div class="mx-auto mb-4">
-                        <button type="button" class="btn btn-primary px-5" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-                            Daftar
-                        </button>
-                    </div>
                     <div class="mx-auto mb-2">
 
                         <!-- Modal -->
