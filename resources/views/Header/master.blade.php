@@ -27,21 +27,23 @@
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="Home">Beranda</a>
                     </li>
-                    {{-- @if (Auth::user()->role == 1) --}}
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Produk">Produk</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Pesanan">Daftar Order</a>
-                    </li>
-                    {{-- @elseif(Auth::user()->level == 2)
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Produk">Produk</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Pesanan">Daftar Order</a>
-                        </li>
-                    @endif --}}
+                    @if (Auth::check())
+                        @if (Auth::user()->role == 1)
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Produk">Produk</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Pesanan">Daftar Order</a>
+                            </li>
+                        @elseif(Auth::user()->role == 2)
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Produk">Produk</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Pesanan">Pesanan</a>
+                            </li>
+                        @endif
+                    @endif
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown">

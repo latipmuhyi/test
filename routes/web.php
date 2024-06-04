@@ -21,15 +21,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('Login/login');
-});
+})->middleware('checkLogin');
 
 Route::post('/register', [RegistrationController::class, 'register'])->name('register');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('Home', [HomeController::class, 'index'])->name('home');
-Route::get('/Produk', [ProdukController::class, 'index'])->name('produk');
-Route::get('/Pesanan', [KelolaProdukController::class, 'index'])->name('pesanan');
-Route::get('/Profil', [ProfilController::class, 'index'])->name('profil');
-Route::middleware('api')->group(function () {
+Route::middleware(['checkLogin'])->group(function () {
+    Route::get('Home', [HomeController::class, 'index'])->name('home');
+    Route::get('/Produk', [ProdukController::class, 'index'])->name('produk');
+    Route::get('/Pesanan', [KelolaProdukController::class, 'index'])->name('pesanan');
+    Route::get('/Profil', [ProfilController::class, 'index'])->name('profil');
 });
+
