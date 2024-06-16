@@ -91,8 +91,8 @@
                                             <select name="role" class="form-select mb-2"
                                                 aria-label="Default select example" required>
                                                 <option selected disabled>-Select-</option>
-                                                <option value="Merchant">Merchant</option>
-                                                <option value="Customer">Customer</option>
+                                                <option value="1">Merchant</option>
+                                                <option value="2">Customer</option>
                                             </select>
 
                                     </div>
