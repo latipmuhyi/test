@@ -4,15 +4,18 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Marketplace Katering</title>
+    <<<<<<< HEAD <title>Marketplace Katering</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/features/">
-    <link href="{{ asset('assets/style/bootstrap.min.css') }}" rel="stylesheet">
-
+        =======
+        <title>SBS</title>
+        >>>>>>> 8ae28f6e8a36ba61b6f4fd3aa82c94c9324312c4
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/features/">
+        <link href="{{ asset('assets/style/bootstrap.min.css') }}" rel="stylesheet">
+        <<<<<<< HEAD=======>>>>>>> 8ae28f6e8a36ba61b6f4fd3aa82c94c9324312c4
 </head>
 
 <body>
@@ -156,7 +159,11 @@
                                     d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
                             </svg> User
                         </a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
                             <li>
                                 <form id="logoutForm" action="{{ route('logout') }}" method="POST"
                                     style="display: none;">
@@ -167,22 +174,54 @@
                                     Logout
                                 </a>
                             </li>
-                            <li><a class="dropdown-item" href="#">Profil</a></li>
                         </ul>
-                    </li>
-                </ul>
             </div>
         </div>
-    </nav>
-    <!-- Header end ti-comment-alt -->
+        </div>
+        <div class="col mx-3">
+            <!-- Content body start -->
+            @yield('content')
+            <!-- Content body end -->
+        </div>
+        </div>
+    @else
+        <nav class="navbar navbar-expand-lg bg-success fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">SBS</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="Home">Beranda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Produk">Produk</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Pesanan">Konsultasi</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/loginUser">Masuk</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        @endif
+        <!-- Header end ti-comment-alt -->
 
-    {{-- <!-- Sidebar start -->
-        @include('sidebar.sidebar')
-        <!-- Sidebar end --> --}}
+        <!-- Content body start -->
+        @yield('content-umum')
+        <!-- Content body end -->
 
-    <!-- Content body start -->
-    @yield('content')
-    <!-- Content body end -->
+
+
 
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -196,7 +235,7 @@
 </script>
 
 <script src="{{ asset('assets/style/dashboard.js') }}"></script>
-<script src="{{ asset('assets/style/color-modes.js') }}"></script>
+<script src="{{ asset('assets/js/color-modes.js') }}"></script>
 </body>
 
 

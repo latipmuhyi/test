@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\HomeAdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KelolaProdukController;
+use App\Http\Controllers\KosultasiController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\ProdukCustomerController;
@@ -23,17 +25,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('Login/login');
+    return view('Home');
 })->middleware('checkLogin');
 
 Route::post('/register', [RegistrationController::class, 'register'])->name('register');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
+Route::get('/loginUser', [LoginController::class, 'index'])->name('loginUser');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/Produk', [ProdukController::class, 'index'])->name('produk');
+Route::get('/Pesanan', [KosultasiController::class, 'index'])->name('pesanan');
+
 
 Route::middleware(['checkLogin'])->group(function () {
     Route::get('Home', [HomeController::class, 'index'])->name('home');
-    Route::get('/Produk', [ProdukController::class, 'index'])->name('produk');
-    Route::get('/Pesanan', [KelolaProdukController::class, 'index'])->name('pesanan');
+    Route::get('/KelolaProduk', [KelolaProdukController::class, 'index'])->name('kelolaProduk');
     Route::get('/Profil', [ProfilController::class, 'index'])->name('profil');
 
     Route::get('/ProfilePerusahaan', [ProfilePerusahaanController::class, 'index'])->name('profilPerusahaan');
