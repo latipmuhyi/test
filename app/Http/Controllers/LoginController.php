@@ -7,17 +7,18 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-
-    public function index(){
-        return view('Login/login');
-    }
-
     public function login(Request $request)
     {
         $credentials = $request->only('username', 'password');
 
         if (Auth::attempt($credentials)) {
+            // return response()->json([
+            //     // 'success' => true,
+            //     // 'message' => 'Login successful!',
+
+            // ]);
             return redirect()->route('home');
+
         }
 
         return response()->json([
