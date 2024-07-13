@@ -6,7 +6,10 @@ use App\Http\Controllers\KelolaProdukController;
 use App\Http\Controllers\KosultasiController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\ProdukCustomerController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\ProfilePerusahaanController;
+use App\Http\Controllers\ProfilPerusahaanCustomerController;
 use App\Http\Controllers\RegistrationController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,6 +40,18 @@ Route::middleware(['checkLogin'])->group(function () {
     Route::get('Home', [HomeController::class, 'index'])->name('home');
     Route::get('/KelolaProduk', [KelolaProdukController::class, 'index'])->name('kelolaProduk');
     Route::get('/Profil', [ProfilController::class, 'index'])->name('profil');
+
+    Route::get('/ProfilePerusahaan', [ProfilePerusahaanController::class, 'index'])->name('profilPerusahaan');
+    Route::post('/simpan-profile', [ProfilePerusahaanController::class, 'simpanProfile'])->name('simpan.profile');
+    Route::post('/edit-profile/{id}', [ProfilePerusahaanController::class, 'editProfile'])->name('edit.profile');
+
+    Route::post('/insert-produk', [ProdukController::class, 'insert'])->name('insert_produk');
+    Route::get('/produk/{id}/edit', [ProdukController::class, 'edit'])->name('produk.edit');
+    Route::post('/produk/{id}', [ProdukController::class, 'update'])->name('produk.update');
+
+    // customer
+    Route::get('/ProdukCustomer', [ProdukCustomerController::class, 'index'])->name('produkCustomer');
+    Route::get('/ProfilePerusahaanCustomer', [ProfilPerusahaanCustomerController::class, 'index'])->name('produkPerusahaanCustomer');
 
 });
 

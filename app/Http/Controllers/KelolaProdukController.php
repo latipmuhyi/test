@@ -8,6 +8,6 @@ class KelolaProdukController extends Controller
 {
     function index()
     {
-        return view('/Admin/KelolaProduk.index');
+        return view('/Merchant/Pesanan.index');
     }
 }

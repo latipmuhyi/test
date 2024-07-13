@@ -7,6 +7,15 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+<!-- install -->
+1. `npm i`    
+2. `composer install`
+3. `copy env.example to .env`
+4. `php artisan generate:key`
+5. `php artisan migrate`
+6. `manual insert in database`
+7. `pull from branch feat/init-Martkerplace-Katering`
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:

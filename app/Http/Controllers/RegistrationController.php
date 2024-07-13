@@ -31,7 +31,7 @@ class RegistrationController extends Controller
         $user->username = $request->username;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
-        $user->role = $request->role == 'Merchant' ? 1 : 0;
+        $user->role = $request->role == 'Merchant' ? 1 : 2;
         $user->save();
 
         return response()->json([
