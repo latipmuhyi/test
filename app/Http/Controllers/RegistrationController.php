@@ -16,7 +16,7 @@ class RegistrationController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'username' => 'required|string|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
-            'role' => 'required|in:Merchant,Customer',
+            'role' => 'required|in:1,2',
         ]);
 
         if ($validator->fails()) {
@@ -31,7 +31,7 @@ class RegistrationController extends Controller
         $user->username = $request->username;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
-        $user->role = $request->role == 'Merchant' ? 1 : 0;
+        $user->role = $request->role == 'Merchant' ? 1 : 2;
         $user->save();
 
         return response()->json([
